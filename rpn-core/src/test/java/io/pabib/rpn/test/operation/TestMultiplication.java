@@ -35,7 +35,7 @@ public class TestMultiplication {
     }
 
     @Test
-    void calculate_should_return_the_addition_of_two_last_when_given_stack_of_multiple_number(){
+    void calculate_should_return_the_multiplication_of_two_last_when_given_stack_of_multiple_number(){
         stackOfMultipleNumber = new Stack<>();
         stackOfMultipleNumber.push(4.);
         stackOfMultipleNumber.push(6.);
