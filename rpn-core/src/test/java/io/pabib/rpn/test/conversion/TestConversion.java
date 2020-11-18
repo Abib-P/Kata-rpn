@@ -16,7 +16,7 @@ class TestConversion {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"  ", "3 4","deux", "3+4", "-42.k"})
+    @ValueSource(strings = {"  ", "3 4","deux", "3+4", "-42.k" ,"+"})
     void conversion_isDouble_should_return_false_when_given_no_number_string(String value) {
         assertThat(isDouble(value)).isFalse();
     }
