@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static io.pabib.rpn.conversion.Conversion.isDouble;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class TestConversion {
+class TestConversion {
 
     @ParameterizedTest
     @ValueSource(strings = {"1", "3.4","5.2", "-3", "-15.65"})
