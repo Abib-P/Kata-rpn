@@ -34,6 +34,15 @@ class TerminalOutputTest {
     }
 
     @Test
+    void should_print_failure_given_a_empty_value(){
+        Optional<Double> value = Optional.empty();
+
+        terminalOutput.printResult(value);
+
+        verify(printStream).println("invalid operation");
+    }
+
+    @Test
     void should_print_formatted_message_given_value(){
         Optional<Double> value = Optional.of(1.2);
 
