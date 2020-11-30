@@ -6,6 +6,7 @@ import io.pabib.rpn.operation.Operation;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.within;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -56,7 +57,7 @@ public class TestDivision {
         stackOfMultipleNumber.push(-44.);
         stackOfMultipleNumber.push(7.64);
         stackOfMultipleNumber.push(-4.32);
-        assertThat(division.calculate(stackOfMultipleNumber)).isEqualTo((7.64)/(-4.32));
+        assertThat(division.calculate(stackOfMultipleNumber)).isCloseTo(-1.768,within(0.001));
     }
 
 }

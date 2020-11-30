@@ -3,9 +3,11 @@ package io.pabib.rpn.test.operation;
 import io.pabib.rpn.operation.Addition;
 import io.pabib.rpn.operation.Multiplication;
 import io.pabib.rpn.operation.Operation;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.within;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -56,7 +58,7 @@ public class TestMultiplication {
         stackOfMultipleNumber.push(-44.);
         stackOfMultipleNumber.push(7.64);
         stackOfMultipleNumber.push(-4.32);
-        assertThat(multiplication.calculate(stackOfMultipleNumber)).isEqualTo(7.64*(-4.32));
+        assertThat(multiplication.calculate(stackOfMultipleNumber)).isCloseTo(-33.,within(0.01));
     }
 
 }

@@ -18,7 +18,10 @@ public class TerminalOutput implements Output {
     }
 
     @Override
-    public void printResult(Optional<Double> message) {
-        printStream.println("invalid operation");
+    public void printResult(Optional<Double> value) {
+        if (value == null)
+            printStream.println("invalid operation");
+        else
+            printStream.println("result is " + value.get());
     }
 }

@@ -32,4 +32,13 @@ class TerminalOutputTest {
 
         verify(printStream).println("invalid operation");
     }
+
+    @Test
+    void should_print_formatted_message_given_value(){
+        Optional<Double> value = Optional.of(1.2);
+
+        terminalOutput.printResult(value);
+
+        verify(printStream).println("result is 1.2");
+    }
 }
