@@ -1,10 +1,9 @@
-package io.pabib.rpn.test.conversion;
+package io.pabib.rpn.test.utile;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import static io.pabib.rpn.conversion.Conversion.isDouble;
+import static io.pabib.rpn.utile.Conversion.isDouble;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class TestConversion {

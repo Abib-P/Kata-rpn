@@ -1,13 +1,17 @@
 package io.pabib.rpn.calculator;
 
-import java.util.Optional;
-import java.util.Stack;
+import io.pabib.rpn.repository.OperationRepository;
+import java.util.*;
 
-import static io.pabib.rpn.conversion.Conversion.isDouble;
+import static io.pabib.rpn.utile.Conversion.isDouble;
 
 public class Calculator {
 
-    Stack<Double> doubleStack;
+    OperationRepository operationRepository ;
+
+    public Calculator(){
+        operationRepository = new OperationRepository();
+    }
 
     public Optional<Double> compute(String input) {
 
@@ -19,6 +23,16 @@ public class Calculator {
         {
             return Optional.of(Double.parseDouble(input));
         }
-        return Optional.of(Double.parseDouble(input));
+        Double finalValue;
+        List<String> d = Arrays.asList(input.split(" "));
+        d.forEach(s -> {
+                    if (isDouble(s)) {
+                        operationRepository.push(Double.parseDouble(s));
+                    } else {
+                        operationRepository.apply(s);
+                    }
+                });
+        finalValue = operationRepository.getFinalValue();
+        return Optional.of(finalValue);
     }
 }

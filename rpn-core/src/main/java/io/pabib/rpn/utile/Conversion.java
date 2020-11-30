@@ -1,4 +1,4 @@
-package io.pabib.rpn.conversion;
+package io.pabib.rpn.utile;
 
 public class Conversion {
     public static boolean isDouble(String value){

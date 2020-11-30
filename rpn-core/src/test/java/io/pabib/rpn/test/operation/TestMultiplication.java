@@ -6,6 +6,8 @@ import io.pabib.rpn.operation.Operation;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Stack;
 
@@ -24,14 +26,26 @@ public class TestMultiplication {
 
     @Test
     void calculate_should_return_optional_empty_when_given_empty_stack() {
-        assertThat(multiplication.calculate(dummyStack)).isEmpty();
+        Exception exception = assertThrows(RuntimeException.class, () -> {
+            assertThat(multiplication.calculate(dummyStack));
+        });
+
+        String expectedMessage = "Not enough values in stack";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
     }
 
     @Test
     void calculate_should_return_optional_empty_when_given_stack_of_one_number() {
-        stackOfOneNumber = new Stack<>();
-        stackOfOneNumber.push(4.);
-        assertThat(multiplication.calculate(stackOfOneNumber)).isEmpty();
+        Exception exception = assertThrows(RuntimeException.class, () -> {
+            stackOfOneNumber = new Stack<>();
+            stackOfOneNumber.push(4.);
+            assertThat(multiplication.calculate(stackOfOneNumber));
+        });
+
+        String expectedMessage = "Not enough values in stack";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
     }
 
     @Test
@@ -42,7 +56,7 @@ public class TestMultiplication {
         stackOfMultipleNumber.push(-44.);
         stackOfMultipleNumber.push(7.64);
         stackOfMultipleNumber.push(-4.32);
-        assertThat(multiplication.calculate(stackOfMultipleNumber)).get().isEqualTo(7.64*(-4.32));
+        assertThat(multiplication.calculate(stackOfMultipleNumber)).isEqualTo(7.64*(-4.32));
     }
 
 }
