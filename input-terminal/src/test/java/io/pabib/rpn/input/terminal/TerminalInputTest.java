@@ -16,9 +16,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class TerminalInputTest {
 
-
-
-
     InputStream inputStream;
 
     Input input;
@@ -31,7 +28,23 @@ public class TerminalInputTest {
     }
 
     @Test
-    void calculator_should_return_null_for_empty_entry() {
+    void input_should_return_null_for_empty_entry() {
+        String stringAsInput = "";
+        inputStream = new ByteArrayInputStream(stringAsInput.getBytes());
+        input = new TerminalInput(inputStream);
+        assertThat(input.getInput()).isEqualTo(null);
+    }
+
+    @Test
+    void input_should_return_null_for_null_entry() {
+        String stringAsInput = "";
+        inputStream = new ByteArrayInputStream(stringAsInput.getBytes());
+        input = new TerminalInput(inputStream);
+        assertThat(input.getInput()).isEqualTo(null);
+    }
+
+    @Test
+    void input_should_return_string_for_null_entry() {
         String stringAsInput = "";
         inputStream = new ByteArrayInputStream(stringAsInput.getBytes());
         input = new TerminalInput(inputStream);
