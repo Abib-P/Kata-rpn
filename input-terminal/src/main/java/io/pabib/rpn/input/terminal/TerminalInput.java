@@ -19,6 +19,8 @@ public class TerminalInput implements Input {
 
     @Override
     public String getInput() {
+        if (scanner.hasNext())
+            return scanner.nextLine();
         return null;
     }
 }
