@@ -17,6 +17,18 @@
             <version>0.0.1</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>io.pabib</groupId>
+            <artifactId>output-terminal</artifactId>
+            <version>0.0.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.pabib</groupId>
+            <artifactId>input-terminal</artifactId>
+            <version>0.0.1</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
 

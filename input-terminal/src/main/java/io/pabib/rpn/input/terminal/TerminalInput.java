@@ -13,7 +13,7 @@ public class TerminalInput implements Input {
         scanner = new Scanner(scan);
     }
 
-    TerminalInput(){
+    public TerminalInput(){
         scanner = new Scanner(System.in);
     }
 
