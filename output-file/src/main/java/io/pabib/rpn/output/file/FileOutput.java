@@ -9,4 +9,5 @@ public class FileOutput implements Output {
     public void printResult(Optional<Double> message) {
 
     }
+
 }
