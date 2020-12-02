@@ -9,8 +9,8 @@ public class TerminalInput implements Input {
 
     Scanner scanner;
 
-    TerminalInput(InputStream scan){
-        scanner = new Scanner(scan);
+    TerminalInput(InputStream inputStream){
+        scanner = new Scanner(inputStream);
     }
 
     public TerminalInput(){
